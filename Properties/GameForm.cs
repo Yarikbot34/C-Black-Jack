@@ -30,15 +30,6 @@ namespace BlackJack_0._2._1.Properties
             game.difficulty = diff;
 
         }
-
-        private void exitButton_Click(object sender, EventArgs e)
-        {
-            MenuForm menuForm = new MenuForm();
-            menuForm.Show();
-            this.Close();
-        }
-
-
         private void buttonApplyBet_Click_1(object sender, EventArgs e)
         {
             NewGame();
@@ -146,7 +137,7 @@ namespace BlackJack_0._2._1.Properties
             crupieStack = crupie.crupieStack;
             int crupieScore = crupie.getCrupieScore();
             printCards();
-            if (userScore > crupieScore && userScore < 21)
+            if ((userScore > crupieScore || crupieScore > 21) && userScore < 21)
             {
                 gameResult.ForeColor = Color.Green;
                 gameResult.Text = "You Win!";
@@ -154,22 +145,25 @@ namespace BlackJack_0._2._1.Properties
             }
             else if (userScore == crupieScore && userScore < 22)
             {
-                gameResult.ForeColor = Color.Yellow;
+                gameResult.ForeColor = Color.Black;
                 gameResult.Text = "Ничья!";
                 userBallance += userBet;
             }
             else if (userScore == 21)
             {
-                gameResult.ForeColor = Color.ForestGreen;
+                gameResult.ForeColor = Color.Green;
                 gameResult.Text = "Блэкджек!";
                 userBallance += userBet * 3;
             }
             else
             {
-                gameResult.ForeColor = Color.DarkRed;
+                gameResult.ForeColor = Color.Red;
                 gameResult.Text = "Вы проиграли";
             }
+            Console.WriteLine($"{crupieScore} {userScore}");
             endGame = false;
+            buttonAddCard.Enabled = false;
+            buttonApplyGame.Enabled = false;
             labelBallance.Text = userBallance.ToString();
             gameResult.Enabled = true;
         }
@@ -181,17 +175,20 @@ namespace BlackJack_0._2._1.Properties
 
         private void buttonClearBet_Click(object sender, EventArgs e)
         {
-            inputBet.Text = "";
+            inputBet.Text = "Ставка";
         }
 
         private void NewGamePrepare()
         {
             buttonApplyBet.Enabled = true;
             buttonClearBet.Enabled = true;
+            buttonAddCard.Enabled = true;
+            buttonApplyGame.Enabled = true;
             inputBet.Enabled = true;
             userScore = 0;
             gameResult.Text = "";
-            inputBet.Text = "";
+            inputBet.ForeColor = Color.Gray;
+            inputBet.Text = "Ставка";
             labelScore.Text = 0.ToString();
             endGame = false;
             userStack = new Card[5];
@@ -208,6 +205,33 @@ namespace BlackJack_0._2._1.Properties
         private void GameForm_FormClosed(object sender, FormClosedEventArgs e)
         {
             Application.Exit();
+        }
+
+        private void inputBet_Enter(object sender, EventArgs e)
+        {
+            if (inputBet.Text == "Ставка")
+            {
+                inputBet.ForeColor = Color.Black;
+                inputBet.Text = "";
+            }
+            
+        }
+
+        private void inputBet_Leave(object sender, EventArgs e)
+        {
+            if (inputBet.Text == "Ставка")
+            {
+                inputBet.ForeColor = Color.Black;
+                inputBet.Text = "";
+            }
+        }
+
+        private void buttonToMenu_Click(object sender, EventArgs e)
+        {
+            NewGamePrepare();
+            MenuForm menu = new MenuForm();
+            menu.Show();
+            this.Hide();
         }
     }
     
