@@ -1,0 +1,11 @@
+C:\Users\yrosl\OneDrive\Рабочий стол\Наработки\BlackJack 0.2.1\bin\Debug\BlackJack_0._2._1.exe.config
+C:\Users\yrosl\OneDrive\Рабочий стол\Наработки\BlackJack 0.2.1\bin\Debug\BlackJack_0._2._1.exe
+C:\Users\yrosl\OneDrive\Рабочий стол\Наработки\BlackJack 0.2.1\bin\Debug\BlackJack_0._2._1.pdb
+C:\Users\yrosl\OneDrive\Рабочий стол\Наработки\BlackJack 0.2.1\obj\Debug\BlackJack 0.2.1.csproj.AssemblyReference.cache
+C:\Users\yrosl\OneDrive\Рабочий стол\Наработки\BlackJack 0.2.1\obj\Debug\BlackJack_0._2._1.Properties.Resources.resources
+C:\Users\yrosl\OneDrive\Рабочий стол\Наработки\BlackJack 0.2.1\obj\Debug\BlackJack 0.2.1.csproj.GenerateResource.cache
+C:\Users\yrosl\OneDrive\Рабочий стол\Наработки\BlackJack 0.2.1\obj\Debug\BlackJack 0.2.1.csproj.CoreCompileInputs.cache
+C:\Users\yrosl\OneDrive\Рабочий стол\Наработки\BlackJack 0.2.1\obj\Debug\BlackJack_0._2._1.exe
+C:\Users\yrosl\OneDrive\Рабочий стол\Наработки\BlackJack 0.2.1\obj\Debug\BlackJack_0._2._1.pdb
+C:\Users\yrosl\OneDrive\Рабочий стол\Наработки\BlackJack 0.2.1\obj\Debug\BlackJack_0._2._1.Properties.MenuForm.resources
+C:\Users\yrosl\OneDrive\Рабочий стол\Наработки\BlackJack 0.2.1\obj\Debug\BlackJack_0._2._1.Properties.GameForm.resources
