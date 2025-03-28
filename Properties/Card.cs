@@ -77,14 +77,12 @@ namespace CardLib
         public Image CardImage()
         {
             string basePath = AppDomain.CurrentDomain.BaseDirectory;
-
-            // Формируем полный путь к изображению 0.png
+            
             string imagePath = Path.Combine(basePath, "Images", "0.png");
             Image cardImage = Image.FromFile(imagePath);
 
             if (!hiden)
             {
-                // Формируем полный путь к изображению с учетом масти и идентификатора
                 string cardName = $"{id}.png";
                 string suitPath = Path.Combine(basePath, "Images", suit.ToString(), cardName);
                 cardImage = Image.FromFile(suitPath);

@@ -47,14 +47,14 @@
     </ItemGroup>
     <ItemGroup>
         <Compile Include="Game.cs" />
-        <Compile Include="Images\FormChangeDiff.cs">
+        <Compile Include="Program.cs" />
+        <Compile Include="Properties\AssemblyInfo.cs" />
+        <Compile Include="Properties\FormChangeDiff.cs">
           <SubType>Form</SubType>
         </Compile>
-        <Compile Include="Images\FormChangeDiff.Designer.cs">
+        <Compile Include="Properties\FormChangeDiff.Designer.cs">
           <DependentUpon>FormChangeDiff.cs</DependentUpon>
         </Compile>
-        <Compile Include="Program.cs"/>
-        <Compile Include="Properties\AssemblyInfo.cs"/>
         <Compile Include="Properties\GameForm.cs">
           <SubType>Form</SubType>
         </Compile>
@@ -69,7 +69,7 @@
         </Compile>
         <Compile Include="Properties\Player.cs" />
         <Compile Include="Properties\Stack.cs" />
-        <EmbeddedResource Include="Images\FormChangeDiff.resx">
+        <EmbeddedResource Include="Properties\FormChangeDiff.resx">
           <DependentUpon>FormChangeDiff.cs</DependentUpon>
         </EmbeddedResource>
         <EmbeddedResource Include="Properties\GameForm.resx">
@@ -100,7 +100,10 @@
         </Compile>
     </ItemGroup>
     <ItemGroup>
-        <None Include="App.config"/>
+        <None Include="App.config" />
+    </ItemGroup>
+    <ItemGroup>
+      <Folder Include="Images\" />
     </ItemGroup>
     <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets"/>
 </Project>

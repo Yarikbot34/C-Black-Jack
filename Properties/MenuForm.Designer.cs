@@ -36,6 +36,7 @@ namespace BlackJack_0._2._1.Properties
             this.buttonDifficulty = new System.Windows.Forms.Button();
             this.buttonWhatNew = new System.Windows.Forms.Button();
             this.exitButton = new System.Windows.Forms.Button();
+            this.buttonUpdate = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // label1
@@ -104,11 +105,24 @@ namespace BlackJack_0._2._1.Properties
             this.exitButton.UseVisualStyleBackColor = false;
             this.exitButton.Click += new System.EventHandler(this.exitButton_Click);
             // 
+            // buttonUpdate
+            // 
+            this.buttonUpdate.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.buttonUpdate.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.buttonUpdate.Location = new System.Drawing.Point(233, 258);
+            this.buttonUpdate.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.buttonUpdate.Name = "buttonUpdate";
+            this.buttonUpdate.Size = new System.Drawing.Size(247, 42);
+            this.buttonUpdate.TabIndex = 5;
+            this.buttonUpdate.Text = "Проверить обновления";
+            this.buttonUpdate.UseVisualStyleBackColor = false;
+            // 
             // MenuForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(711, 359);
+            this.Controls.Add(this.buttonUpdate);
             this.Controls.Add(this.exitButton);
             this.Controls.Add(this.buttonWhatNew);
             this.Controls.Add(this.buttonDifficulty);
@@ -120,6 +134,8 @@ namespace BlackJack_0._2._1.Properties
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.MenuForm_FormClosed);
             this.ResumeLayout(false);
         }
+
+        private System.Windows.Forms.Button buttonUpdate;
 
         private System.Windows.Forms.Button fastGameButton;
         private System.Windows.Forms.Button buttonDifficulty;
