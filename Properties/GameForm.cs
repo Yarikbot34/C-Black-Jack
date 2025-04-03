@@ -14,20 +14,19 @@ namespace BlackJack_0._2._1.Properties
 {
     public partial class GameForm : Form
     {
-        private Game game;
         public int userBallance, userBet;
         private User user;
         private Crupie crupie;
         public bool endGame = false;
         public Stack stack;
         public byte userScore = 0;
+        public byte difficulty;
         public GameForm(byte diff)
         {
             InitializeComponent();
             userBallance = 500;
             inputBet.Enabled = true;
-            game = new Game();
-            game.difficulty = diff;
+            difficulty = diff;
 
         }
         private void buttonApplyBet_Click_1(object sender, EventArgs e)
@@ -56,7 +55,6 @@ namespace BlackJack_0._2._1.Properties
                 endGame = false;
                 stack = new Stack();
                 stack.NewStack();
-                game.Bet = Convert.ToInt32(inputBet.Text);
                 user.GetCards(stack);
                 crupie = new Crupie();
                 crupie.GetCards(stack);
@@ -122,7 +120,7 @@ namespace BlackJack_0._2._1.Properties
         private void endGameStart()
         {
             endGame = true;
-            crupie.crupieGame(userScore, stack, game.difficulty);
+            crupie.crupieGame(userScore, stack, difficulty);
             int crupieScore = crupie.GetScore();
             printCards();
             if ((userScore > crupieScore || crupieScore > 21) && userScore < 21)
