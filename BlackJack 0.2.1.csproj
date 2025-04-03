@@ -69,6 +69,7 @@
         </Compile>
         <Compile Include="Properties\Player.cs" />
         <Compile Include="Properties\Stack.cs" />
+        <Compile Include="Properties\User.cs" />
         <EmbeddedResource Include="Properties\FormChangeDiff.resx">
           <DependentUpon>FormChangeDiff.cs</DependentUpon>
         </EmbeddedResource>

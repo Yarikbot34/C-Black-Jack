@@ -8,6 +8,7 @@ using GameLib;
 using CardLib;
 using CrupieLib;
 using StackLib;
+using UserLib;
 
 namespace BlackJack_0._2._1.Properties
 {
@@ -15,9 +16,8 @@ namespace BlackJack_0._2._1.Properties
     {
         private Game game;
         public int userBallance, userBet;
-        public Card[] userStack;
-        public Card[] crupieStack;
-        public Crupie crupie;
+        private User user;
+        private Crupie crupie;
         public bool endGame = false;
         public Stack stack;
         public byte userScore = 0;
@@ -37,20 +37,14 @@ namespace BlackJack_0._2._1.Properties
 
         private void buttonAddCard_Click(object xz, EventArgs ea)
         {
-            foreach (Card i in userStack)
-            {
-                if (i == null)
-                {
-                    userStack[Array.IndexOf(userStack, i)] = stack.GiveCard();
-                    break;
-                }
-            }
+            user.AddCard(stack);
             calculateScore();
             printCards();
         }
 
         private void NewGame()
         {
+            user = new User();
             userBet = Convert.ToInt32(inputBet.Text);
             if (userBet <= userBallance && userBet > 0)
             {
@@ -63,9 +57,9 @@ namespace BlackJack_0._2._1.Properties
                 stack = new Stack();
                 stack.NewStack();
                 game.Bet = Convert.ToInt32(inputBet.Text);
-                userStack = game.cardsOnTable(stack);
+                user.GetCards(stack);
                 crupie = new Crupie();
-                crupieStack = crupie.crupieGetCard(stack);
+                crupie.GetCards(stack);
                 inputBet.Enabled = false;
                 calculateScore();
                 printCards();
@@ -78,10 +72,10 @@ namespace BlackJack_0._2._1.Properties
             Panel[] CrupieCards = new[] { crupieCard1, crupieCard2, crupieCard3, crupieCard4, crupieCard5 };
             for (byte i = 0; i < 5; i++)
             {
-                if (userStack[i] != null)
+                if (user.cards[i] != null)
                 {
                     UserCards[i].Visible = true;
-                    UserCards[i].BackgroundImage = userStack[i].CardImage();
+                    UserCards[i].BackgroundImage = user.cards[i].CardImage();
                 }
                 else
                 {
@@ -90,7 +84,7 @@ namespace BlackJack_0._2._1.Properties
             }
             for (byte i = 0; i < 5; i++)
             {
-                if (crupieStack[i] != null)
+                if (crupie.cards[i] != null)
                 {
                     if (i > 0 && endGame)
                     {
@@ -99,13 +93,13 @@ namespace BlackJack_0._2._1.Properties
                     CrupieCards[i].Visible = true;
                     if (i == 1 && !endGame)
                     {
-                        crupieStack[i].hiden = true;
+                        crupie.cards[i].hiden = true;
                     }
                     else
                     {
-                        crupieStack[i].hiden = false;
+                        crupie.cards[i].hiden = false;
                     }
-                    CrupieCards[i].BackgroundImage = crupieStack[i].CardImage();
+                    CrupieCards[i].BackgroundImage = crupie.cards[i].CardImage();
                 }
                 else
                 {
@@ -116,12 +110,7 @@ namespace BlackJack_0._2._1.Properties
 
         private void calculateScore()
         {
-            userScore = 0;
-            foreach (Card i in userStack)
-            {
-                if (i != null)
-                {userScore += (byte)i.GetPrice();}
-            }
+            userScore = user.GetScore();
             labelScore.Text = userScore.ToString();
             if (userScore > 20)
             {
@@ -133,9 +122,8 @@ namespace BlackJack_0._2._1.Properties
         private void endGameStart()
         {
             endGame = true;
-            crupie.crupieGame(userScore, stack, game.difficulty, crupieStack);
-            crupieStack = crupie.crupieStack;
-            int crupieScore = crupie.getCrupieScore();
+            crupie.crupieGame(userScore, stack, game.difficulty);
+            int crupieScore = crupie.GetScore();
             printCards();
             if ((userScore > crupieScore || crupieScore > 21) && userScore < 21)
             {
@@ -191,8 +179,8 @@ namespace BlackJack_0._2._1.Properties
             inputBet.Text = "Ставка";
             labelScore.Text = 0.ToString();
             endGame = false;
-            userStack = new Card[5];
-            crupieStack = new Card[5];
+            user.cards = new Card[5];
+            crupie.cards = new Card[5];
             printCards();
         }
 

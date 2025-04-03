@@ -1,44 +1,36 @@
 using System;
-using System.Drawing.Printing;
 using CardLib;
 using StackLib;
+using UserLib;
 
 namespace CrupieLib
 {
-    public class Crupie
+    public class Crupie : User
     {
-        public Card[] crupieStack = new Card[5];
-        private int crupieScore = 0;
+        private int score;
+        
 
-        public Card[] crupieGetCard(Stack stack)
+        public void crupieGame(byte userScore, Stack stack, byte difficulty)
         {
-            crupieStack[0] = stack.GiveCard();
-            crupieStack[1] = stack.GiveCard();
-            crupieScore = crupieStack[0].GetPrice() + crupieStack[1].GetPrice();
-            return crupieStack;
-        }
-
-        public void crupieGame(byte userScore, Stack stack, byte difficulty, Card[] crupieCards)
-        {
-            foreach (Card i in crupieCards)
+            foreach (Card i in cards)
             {
                 if (i == null)
                 {
-                    int index = Array.IndexOf(crupieCards, i);
-                    if ((userScore > crupieScore && userScore < 20 || crupieScore < 10) && index < 5 && difficulty == 3)
+                    int index = Array.IndexOf(cards, i);
+                    if ((userScore > score && userScore < 20 || score < 10) && index < 5 && difficulty == 3)
                     {
-                        crupieCards[index] = stack.GiveCard();
-                        crupieScore += crupieCards[index].GetPrice();
+                        cards[index] = stack.GiveCard();
+                        score += cards[index].GetPrice();
                     }
-                    else if ((userScore > crupieScore && userScore < 15 || crupieScore < 10) && index < 5 && difficulty == 2)
+                    else if ((userScore > score && userScore < 15 || score < 10) && index < 5 && difficulty == 2)
                     {
-                        crupieCards[index] = stack.GiveCard();
-                        crupieScore += crupieCards[index].GetPrice();
+                        cards[index] = stack.GiveCard();
+                        score += cards[index].GetPrice();
                     }
-                    else if ( crupieScore < 10 && index < 5 && difficulty == 1)
+                    else if ( score < 10 && index < 5 && difficulty == 1)
                     {
-                        crupieCards[index] = stack.GiveCard();
-                        crupieScore += crupieCards[index].GetPrice();
+                        cards[index] = stack.GiveCard();
+                        score += cards[index].GetPrice();
                     }
                     else
                     {
@@ -46,13 +38,7 @@ namespace CrupieLib
                     }   
                 }
             }
-            crupieStack = crupieCards;
             
-        }
-
-        public int getCrupieScore()
-        {
-            return crupieScore;
         }
     }
 }
