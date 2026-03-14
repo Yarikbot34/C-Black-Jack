@@ -20,6 +20,7 @@ namespace BlackJack_0._2._1.Properties
         public Stack stack;
         public byte userScore = 0;
         public byte difficulty;
+        public bool btnMove;
         public GameForm(byte diff)
         {
             InitializeComponent();
@@ -42,10 +43,14 @@ namespace BlackJack_0._2._1.Properties
 
         private void NewGame()
         {
+            buttonAddCard.Visible = true;
             user = new User();
-            userBet = Convert.ToInt32(inputBet.Text);
-            if (userBet <= userBallance && userBet > 0)
+            btnMove = false;
+            userBet = Convert.ToInt32(inputBet.Value);
+            inputBet.Maximum = userBallance;
+            if (userBet > 0)
             {
+                buttonAddCard.Location = new Point(320, 345);
                 userBallance -= Convert.ToInt32(inputBet.Text);
                 labelBallance.Text = userBallance.ToString();
                 buttonApplyBet.Enabled = false;
@@ -76,6 +81,12 @@ namespace BlackJack_0._2._1.Properties
                 }
                 else
                 {
+                    if (!(btnMove) && !endGame)
+                    {
+                        buttonAddCard.Visible = true;
+                        buttonAddCard.Location = new Point(buttonAddCard.Location.X + 110, buttonAddCard.Location.Y);
+                        btnMove = true;
+                    }
                     UserCards[i].Visible = false;
                 }
             }
@@ -99,14 +110,17 @@ namespace BlackJack_0._2._1.Properties
                     CrupieCards[i].Visible = false;
                 }
             }
+            btnMove = false;
         }
 
         private void calculateScore()
         {
+
             userScore = user.GetScore();
             labelScore.Text = userScore.ToString();
             if (userScore > 20)
             {
+                buttonAddCard.Visible = false;
                 endGame = true;
                 endGameStart();
             }
@@ -161,6 +175,7 @@ namespace BlackJack_0._2._1.Properties
 
         private void NewGamePrepare()
         {
+            buttonAddCard.Visible = false;
             buttonApplyBet.Enabled = true;
             buttonClearBet.Enabled = true;
             buttonAddCard.Enabled = true;

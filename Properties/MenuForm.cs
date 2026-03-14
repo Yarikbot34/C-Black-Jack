@@ -1,4 +1,5 @@
 using System;
+using System.Drawing;
 using System.Windows.Forms;
 using BlackJack_0._2._1.Images;
 
@@ -39,13 +40,38 @@ namespace BlackJack_0._2._1.Properties
         private void buttonWhatNew_Click(object sender, EventArgs e)
         {
             MessageBox.Show(
-                "Обновление 0.2\n-Возможность выбора сложности\n-Список обновлений\nИсправленные ошибки:\n-Интерфейс блокируется после конца игры");
+                "Обновление 1.0\n-Исправление ИИ крупье\n-Изменение интерфейса\n-Убрали кнопку 'Проверить обновления'");
         }
 
-        private void label1_Click(object sender, EventArgs e)
+        private void button1_Click(object sender, EventArgs e)
         {
-            
+            throw new System.NotImplementedException();
         }
         
+        private void MenuButton_MouseHover(object sender, EventArgs e)
+        {
+            Button button = (Button)sender;
+            button.Font = new Font(button.Font, FontStyle.Underline^FontStyle.Bold);
+        }
+
+        private void MenuButton_MouseLeave(object sender, EventArgs e)
+        {
+            Button button = (Button)sender;
+            button.Font = new Font(button.Font, FontStyle.Bold);
+        }
+        
+        private void LeaveMenuButton_MouseHover(object sender, EventArgs e)
+        {
+            Button button = (Button)sender;
+            button.Font = new Font(button.Font, FontStyle.Underline^FontStyle.Bold);
+            button.ForeColor = Color.LightPink;
+        }
+
+        private void LeaveMenuButton_MouseLeave(object sender, EventArgs e)
+        {
+            Button button = (Button)sender;
+            button.Font = new Font(button.Font, FontStyle.Bold);
+            button.ForeColor = Color.White;
+        }
     }
 }
