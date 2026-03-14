@@ -4,7 +4,6 @@ using System.Windows.Forms;
 using System.Drawing;
 using System.IO;
 using System.Threading;
-using GameLib;
 using CardLib;
 using CrupieLib;
 using StackLib;
@@ -84,10 +83,6 @@ namespace BlackJack_0._2._1.Properties
             {
                 if (crupie.cards[i] != null)
                 {
-                    if (i > 0 && endGame)
-                    {
-                        Thread.Sleep(500);
-                    }
                     CrupieCards[i].Visible = true;
                     if (i == 1 && !endGame)
                     {
