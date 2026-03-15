@@ -43,14 +43,17 @@ namespace BlackJack_0._2._1.Properties
 
         private void NewGame()
         {
-            buttonAddCard.Visible = true;
             user = new User();
             btnMove = false;
             userBet = Convert.ToInt32(inputBet.Value);
             inputBet.Maximum = userBallance;
             if (userBet > 0)
             {
-                buttonAddCard.Location = new Point(320, 345);
+                buttonAddCard.Hide();
+                buttonApplyGame.Hide();
+                buttonAddCard.Location = new Point(360, 345);
+                buttonApplyGame.Location = new Point(360, 380);
+                Console.WriteLine(buttonApplyGame.Location);
                 userBallance -= Convert.ToInt32(inputBet.Text);
                 labelBallance.Text = userBallance.ToString();
                 buttonApplyBet.Enabled = false;
@@ -81,12 +84,16 @@ namespace BlackJack_0._2._1.Properties
                 }
                 else
                 {
-                    if (!(btnMove) && !endGame)
+                    if (!(btnMove) && !endGame && i > 2)
                     {
                         buttonAddCard.Visible = true;
-                        buttonAddCard.Location = new Point(buttonAddCard.Location.X + 110, buttonAddCard.Location.Y);
+                        buttonApplyGame.Visible = true;
+                        buttonAddCard.Location = new Point(buttonAddCard.Location.X + 70, buttonAddCard.Location.Y);
+                        buttonApplyGame.Location = new Point(buttonApplyGame.Location.X + 70, buttonApplyGame.Location.Y);
                         btnMove = true;
                     }
+                    else if (i < 2)
+                    { btnMove = true;}
                     UserCards[i].Visible = false;
                 }
             }
@@ -121,6 +128,7 @@ namespace BlackJack_0._2._1.Properties
             if (userScore > 20)
             {
                 buttonAddCard.Visible = false;
+                buttonApplyGame.Visible = false;
                 endGame = true;
                 endGameStart();
             }
@@ -157,6 +165,8 @@ namespace BlackJack_0._2._1.Properties
             }
             Console.WriteLine($"{crupieScore} {userScore}");
             endGame = false;
+            buttonAddCard.Hide();
+            buttonApplyGame.Hide();
             buttonAddCard.Enabled = false;
             buttonApplyGame.Enabled = false;
             labelBallance.Text = userBallance.ToString();
@@ -201,25 +211,6 @@ namespace BlackJack_0._2._1.Properties
         private void GameForm_FormClosed(object sender, FormClosedEventArgs e)
         {
             Application.Exit();
-        }
-
-        private void inputBet_Enter(object sender, EventArgs e)
-        {
-            if (inputBet.Text == "Ставка")
-            {
-                inputBet.ForeColor = Color.Black;
-                inputBet.Text = "";
-            }
-            
-        }
-
-        private void inputBet_Leave(object sender, EventArgs e)
-        {
-            if (inputBet.Text == "Ставка")
-            {
-                inputBet.ForeColor = Color.Black;
-                inputBet.Text = "";
-            }
         }
 
         private void buttonToMenu_Click(object sender, EventArgs e)

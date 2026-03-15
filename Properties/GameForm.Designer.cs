@@ -33,7 +33,6 @@ namespace BlackJack_0._2._1.Properties
         {
             this.label1 = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.buttonApplyGame = new System.Windows.Forms.Button();
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.inputBet = new System.Windows.Forms.NumericUpDown();
@@ -41,6 +40,7 @@ namespace BlackJack_0._2._1.Properties
             this.buttonApplyBet = new System.Windows.Forms.Button();
             this.buttonClearBet = new System.Windows.Forms.Button();
             this.labelBallance = new System.Windows.Forms.Label();
+            this.buttonApplyGame = new System.Windows.Forms.Button();
             this.buttonAddCard = new System.Windows.Forms.Button();
             this.userCard1 = new System.Windows.Forms.Panel();
             this.userCard2 = new System.Windows.Forms.Panel();
@@ -74,7 +74,6 @@ namespace BlackJack_0._2._1.Properties
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.SystemColors.ControlDark;
-            this.panel1.Controls.Add(this.buttonApplyGame);
             this.panel1.Controls.Add(this.label3);
             this.panel1.Controls.Add(this.label2);
             this.panel1.Controls.Add(this.inputBet);
@@ -88,17 +87,6 @@ namespace BlackJack_0._2._1.Properties
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(295, 669);
             this.panel1.TabIndex = 6;
-            // 
-            // buttonApplyGame
-            // 
-            this.buttonApplyGame.Location = new System.Drawing.Point(12, 527);
-            this.buttonApplyGame.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.buttonApplyGame.Name = "buttonApplyGame";
-            this.buttonApplyGame.Size = new System.Drawing.Size(82, 39);
-            this.buttonApplyGame.TabIndex = 6;
-            this.buttonApplyGame.Text = "Хватит";
-            this.buttonApplyGame.UseVisualStyleBackColor = true;
-            this.buttonApplyGame.Click += new System.EventHandler(this.buttonApplyGame_Click);
             // 
             // label3
             // 
@@ -176,6 +164,18 @@ namespace BlackJack_0._2._1.Properties
             this.labelBallance.Size = new System.Drawing.Size(284, 110);
             this.labelBallance.TabIndex = 0;
             this.labelBallance.Text = "500$";
+            // 
+            // buttonApplyGame
+            // 
+            this.buttonApplyGame.Location = new System.Drawing.Point(600, 600);
+            this.buttonApplyGame.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.buttonApplyGame.Name = "buttonApplyGame";
+            this.buttonApplyGame.Size = new System.Drawing.Size(80, 40);
+            this.buttonApplyGame.TabIndex = 6;
+            this.buttonApplyGame.Text = "Пас";
+            this.buttonApplyGame.UseVisualStyleBackColor = true;
+            this.buttonApplyGame.Visible = false;
+            this.buttonApplyGame.Click += new System.EventHandler(this.buttonApplyGame_Click);
             // 
             // buttonAddCard
             // 
@@ -320,6 +320,7 @@ namespace BlackJack_0._2._1.Properties
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.Control;
             this.ClientSize = new System.Drawing.Size(1178, 744);
+            this.Controls.Add(this.buttonApplyGame);
             this.Controls.Add(this.crupieCard2);
             this.Controls.Add(this.buttonAddCard);
             this.Controls.Add(this.buttonToMenu);
@@ -335,6 +336,7 @@ namespace BlackJack_0._2._1.Properties
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.gameResult);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Location = new System.Drawing.Point(15, 15);
             this.Margin = new System.Windows.Forms.Padding(3, 1, 3, 1);
             this.Name = "GameForm";

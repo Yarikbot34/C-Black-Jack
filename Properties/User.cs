@@ -7,6 +7,7 @@ namespace UserLib
     {
         private byte cardCount;
         public Card[] cards;
+        public byte aces;
         
         public User()
         {
@@ -35,13 +36,23 @@ namespace UserLib
 
         public byte GetScore()
         {
+            aces = 0;
             byte score = 0;
             foreach (Card card in cards)
             {
                 if (card != null)
                 {
                     score += (byte)card.GetPrice();
+                    if (card.id == 13)
+                    {
+                        aces++;
+                    }
                 }
+            }
+            while (score > 21 && aces >= 1)
+            {
+                score -= 10;
+                aces--;
             }
             return score;
         }
