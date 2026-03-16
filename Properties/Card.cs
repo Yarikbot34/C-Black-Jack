@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using System.Net.Mime;
 using System.Drawing;
 using System.IO;
+using BlackJack_0._2._1;
+using BlackJack_0._2._1.Properties;
 
 
 namespace CardLib
@@ -12,6 +14,7 @@ namespace CardLib
         public bool hiden = false;
         public byte id = 0;
         public byte suit = 0;
+        public string textures = Data.texturePack;
         private Dictionary<byte, string> cards = new Dictionary<byte, string>()
         {
             { 0, "1" },
@@ -78,13 +81,13 @@ namespace CardLib
         {
             string basePath = AppDomain.CurrentDomain.BaseDirectory;
             
-            string imagePath = Path.Combine(basePath, "Images", "0.png");
+            string imagePath = Path.Combine(basePath, textures, "0.png");
             Image cardImage = Image.FromFile(imagePath);
 
             if (!hiden)
             {
                 string cardName = $"{id}.png";
-                string suitPath = Path.Combine(basePath, "Images", suit.ToString(), cardName);
+                string suitPath = Path.Combine(basePath, textures, suit.ToString(), cardName);
                 cardImage = Image.FromFile(suitPath);
             }
             return cardImage;

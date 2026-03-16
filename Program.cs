@@ -10,6 +10,11 @@ using CardLib;
 
 namespace BlackJack_0._2._1
 {
+    public static class Data
+    {
+        public static string texturePack = "CardTextures/Base";
+    }
+    
     static class Program
     {
         static void Main()

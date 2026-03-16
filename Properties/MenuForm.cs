@@ -45,7 +45,9 @@ namespace BlackJack_0._2._1.Properties
 
         private void button1_Click(object sender, EventArgs e)
         {
-            throw new System.NotImplementedException();
+            TexturePaks texturePaks = new TexturePaks();
+            texturePaks.Show();
+            this.Hide();
         }
         
         private void MenuButton_MouseHover(object sender, EventArgs e)

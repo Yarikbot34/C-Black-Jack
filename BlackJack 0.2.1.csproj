@@ -68,6 +68,12 @@
         </Compile>
         <Compile Include="Properties\Player.cs" />
         <Compile Include="Properties\Stack.cs" />
+        <Compile Include="Properties\TexturePaks.cs">
+          <SubType>Form</SubType>
+        </Compile>
+        <Compile Include="Properties\TexturePaks.Designer.cs">
+          <DependentUpon>TexturePaks.cs</DependentUpon>
+        </Compile>
         <Compile Include="Properties\User.cs" />
         <EmbeddedResource Include="Properties\FormChangeDiff.resx">
           <DependentUpon>FormChangeDiff.cs</DependentUpon>
@@ -89,6 +95,9 @@
             <AutoGen>True</AutoGen>
             <DependentUpon>Resources.resx</DependentUpon>
         </Compile>
+        <EmbeddedResource Include="Properties\TexturePaks.resx">
+          <DependentUpon>TexturePaks.cs</DependentUpon>
+        </EmbeddedResource>
         <None Include="Properties\Settings.settings">
             <Generator>SettingsSingleFileGenerator</Generator>
             <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -104,6 +113,9 @@
     </ItemGroup>
     <ItemGroup>
       <Folder Include="Images\" />
+    </ItemGroup>
+    <ItemGroup>
+      <Content Include=".gitignore" />
     </ItemGroup>
     <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets"/>
 </Project>
