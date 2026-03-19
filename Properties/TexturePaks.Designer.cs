@@ -52,10 +52,10 @@ namespace BlackJack_0._2._1.Properties
             // 
             this.exitButton.BackColor = System.Drawing.SystemColors.ActiveCaption;
             this.exitButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.exitButton.Location = new System.Drawing.Point(435, 607);
+            this.exitButton.Location = new System.Drawing.Point(424, 614);
             this.exitButton.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.exitButton.Name = "exitButton";
-            this.exitButton.Size = new System.Drawing.Size(365, 78);
+            this.exitButton.Size = new System.Drawing.Size(400, 80);
             this.exitButton.TabIndex = 13;
             this.exitButton.Text = "В меню";
             this.exitButton.UseVisualStyleBackColor = false;

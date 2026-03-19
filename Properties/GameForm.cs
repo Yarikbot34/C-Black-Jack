@@ -24,6 +24,8 @@ namespace BlackJack_0._2._1.Properties
         public GameForm(byte diff)
         {
             InitializeComponent();
+            user = new User();
+            crupie = new Crupie();
             userBallance = 500;
             inputBet.Enabled = true;
             difficulty = diff;
@@ -43,7 +45,6 @@ namespace BlackJack_0._2._1.Properties
 
         private void NewGame()
         {
-            user = new User();
             btnMove = false;
             userBet = Convert.ToInt32(inputBet.Value);
             inputBet.Maximum = userBallance;
@@ -63,7 +64,6 @@ namespace BlackJack_0._2._1.Properties
                 stack = new Stack();
                 stack.NewStack();
                 user.GetCards(stack);
-                crupie = new Crupie();
                 crupie.GetCards(stack);
                 inputBet.Enabled = false;
                 calculateScore();
@@ -75,6 +75,7 @@ namespace BlackJack_0._2._1.Properties
         {
             Panel[] UserCards = new[] { userCard1, userCard2, userCard3, userCard4, userCard5 };
             Panel[] CrupieCards = new[] { crupieCard1, crupieCard2, crupieCard3, crupieCard4, crupieCard5 };
+            // Карты игрока
             for (byte i = 0; i < 5; i++)
             {
                 if (user.cards[i] != null)
@@ -97,6 +98,7 @@ namespace BlackJack_0._2._1.Properties
                     UserCards[i].Visible = false;
                 }
             }
+            //Карты крупье/второго игрока
             for (byte i = 0; i < 5; i++)
             {
                 if (crupie.cards[i] != null)
@@ -122,35 +124,42 @@ namespace BlackJack_0._2._1.Properties
 
         private void calculateScore()
         {
-
             userScore = user.GetScore();
-            labelScore.Text = userScore.ToString();
             if (userScore > 20)
             {
-                buttonAddCard.Visible = false;
-                buttonApplyGame.Visible = false;
-                endGame = true;
                 endGameStart();
+            }
+            else
+            {
+                labelScore.Text = userScore.ToString();
             }
         }
 
         private void endGameStart()
         {
             endGame = true;
-            crupie.crupieGame(userScore, stack, difficulty);
-            int crupieScore = crupie.GetScore();
-            printCards();
-            if ((userScore > crupieScore || crupieScore > 21) && userScore < 21)
+            if (userScore < 21)
             {
-                gameResult.ForeColor = Color.Green;
-                gameResult.Text = "You Win!";
-                userBallance += userBet*2;
-            }
-            else if (userScore == crupieScore && userScore < 22)
-            {
-                gameResult.ForeColor = Color.Black;
-                gameResult.Text = "Ничья!";
-                userBallance += userBet;
+                crupie.crupieGame(userScore, stack, difficulty);
+                int User2Score = crupie.GetScore();
+                printCards();
+                if (userScore > User2Score || User2Score > 21)
+                {
+                    gameResult.ForeColor = Color.Green;
+                    gameResult.Text = "You Win!";
+                    userBallance += userBet*2;
+                }
+                else if (userScore == User2Score && userScore < 22)
+                {
+                    gameResult.ForeColor = Color.Black;
+                    gameResult.Text = "Ничья!";
+                    userBallance += userBet;
+                }
+                else
+                {
+                    gameResult.ForeColor = Color.Red;
+                    gameResult.Text = "Вы проиграли";
+                }
             }
             else if (userScore == 21)
             {
@@ -163,12 +172,10 @@ namespace BlackJack_0._2._1.Properties
                 gameResult.ForeColor = Color.Red;
                 gameResult.Text = "Вы проиграли";
             }
-            Console.WriteLine($"{crupieScore} {userScore}");
-            endGame = false;
-            buttonAddCard.Hide();
+            buttonAddCard.Hide(); 
             buttonApplyGame.Hide();
-            buttonAddCard.Enabled = false;
-            buttonApplyGame.Enabled = false;
+            Console.WriteLine($"AddCard Visible: {buttonAddCard.Visible}, ApplyGame Visible: {buttonApplyGame.Visible}");
+            Update();
             labelBallance.Text = userBallance.ToString();
             gameResult.Enabled = true;
         }
@@ -185,7 +192,8 @@ namespace BlackJack_0._2._1.Properties
 
         private void NewGamePrepare()
         {
-            buttonAddCard.Visible = false;
+            buttonAddCard.Hide();
+            buttonApplyGame.Hide();
             buttonApplyBet.Enabled = true;
             buttonClearBet.Enabled = true;
             buttonAddCard.Enabled = true;

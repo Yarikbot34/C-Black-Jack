@@ -22,6 +22,7 @@ namespace BlackJack_0._2._1.Properties
                 {
                     Button btn = new Button();
                     btn.Size = new Size(100, 40);
+                    btn.BackColor = SystemColors.ActiveCaption;
                     btn.Text = Paks[i].Substring(Paks[i].LastIndexOf("\\") + 1);
                     btn.Location = pos;
                     pos = new Point(pos.X, pos.Y + 50);

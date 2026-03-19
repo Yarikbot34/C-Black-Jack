@@ -27,7 +27,7 @@ namespace UserLib
 
         public void AddCard(Stack stack)
         {
-            if (cardCount < 5)
+            if (cardCount < 6)
             {
                 cards[cardCount-1] = stack.GiveCard();
                 cardCount++;
