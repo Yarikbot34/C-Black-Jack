@@ -10,6 +10,7 @@ namespace BlackJack_0._2._1.Properties
         public MenuForm()
         {
             InitializeComponent();
+            Data.windowPosition = this.Location;
         }
         
 

@@ -27,6 +27,7 @@ namespace BlackJack_0._2._1.Properties
             user = new User();
             crupie = new Crupie();
             userBallance = 500;
+            inputBet.Maximum = userBallance;
             inputBet.Enabled = true;
             difficulty = diff;
 
@@ -47,7 +48,6 @@ namespace BlackJack_0._2._1.Properties
         {
             btnMove = false;
             userBet = Convert.ToInt32(inputBet.Value);
-            inputBet.Maximum = userBallance;
             if (userBet > 0)
             {
                 buttonAddCard.Hide();
@@ -187,11 +187,18 @@ namespace BlackJack_0._2._1.Properties
 
         private void buttonClearBet_Click(object sender, EventArgs e)
         {
-            inputBet.Text = "Ставка";
+            inputBet.Text = "0";
         }
 
         private void NewGamePrepare()
         {
+            if (userBallance == 0)
+            {
+                MenuForm menu = new MenuForm();
+                menu.Show();
+                this.Hide();
+            }
+            inputBet.Maximum = userBallance;
             buttonAddCard.Hide();
             buttonApplyGame.Hide();
             buttonApplyBet.Enabled = true;
@@ -201,7 +208,7 @@ namespace BlackJack_0._2._1.Properties
             inputBet.Enabled = true;
             userScore = 0;
             gameResult.Text = "";
-            inputBet.ForeColor = Color.Gray;
+            inputBet.ForeColor = Color.Black;
             inputBet.Text = "Ставка";
             labelScore.Text = 0.ToString();
             endGame = false;
@@ -227,6 +234,13 @@ namespace BlackJack_0._2._1.Properties
             MenuForm menu = new MenuForm();
             menu.Show();
             this.Hide();
+        }
+
+
+        private void AllInButton_Click(object sender, EventArgs e)
+        {
+            userBet = userBallance;
+            inputBet.Text = userBet.ToString();
         }
     }
     

@@ -39,6 +39,7 @@ namespace BlackJack_0._2._1.Properties
             this.buttonWhatNew = new System.Windows.Forms.Button();
             this.exitButton = new System.Windows.Forms.Button();
             this.multiplayerBtn = new System.Windows.Forms.Button();
+            this.button1 = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // label1
@@ -130,7 +131,7 @@ namespace BlackJack_0._2._1.Properties
             this.exitButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.exitButton.Font = new System.Drawing.Font("Tahoma", 20F, System.Drawing.FontStyle.Bold);
             this.exitButton.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.exitButton.Location = new System.Drawing.Point(0, 486);
+            this.exitButton.Location = new System.Drawing.Point(0, 555);
             this.exitButton.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.exitButton.Name = "exitButton";
             this.exitButton.Size = new System.Drawing.Size(464, 65);
@@ -157,12 +158,31 @@ namespace BlackJack_0._2._1.Properties
             this.multiplayerBtn.Name = "multiplayerBtn";
             this.multiplayerBtn.Size = new System.Drawing.Size(464, 65);
             this.multiplayerBtn.TabIndex = 4;
-            this.multiplayerBtn.Text = "Мультиплеер";
+            this.multiplayerBtn.Text = "Текстурпаки";
             this.multiplayerBtn.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.multiplayerBtn.UseVisualStyleBackColor = false;
             this.multiplayerBtn.Click += new System.EventHandler(this.button1_Click);
             this.multiplayerBtn.MouseLeave += new System.EventHandler(this.MenuButton_MouseLeave);
             this.multiplayerBtn.MouseHover += new System.EventHandler(this.MenuButton_MouseHover);
+            // 
+            // button1
+            // 
+            this.button1.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.button1.BackColor = System.Drawing.Color.Transparent;
+            this.button1.FlatAppearance.BorderSize = 0;
+            this.button1.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
+            this.button1.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
+            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button1.Font = new System.Drawing.Font("Tahoma", 20F, System.Drawing.FontStyle.Bold);
+            this.button1.ForeColor = System.Drawing.SystemColors.ControlLightLight;
+            this.button1.Location = new System.Drawing.Point(0, 486);
+            this.button1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(464, 65);
+            this.button1.TabIndex = 7;
+            this.button1.Text = "Мультиплеер";
+            this.button1.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.button1.UseVisualStyleBackColor = false;
             // 
             // MenuForm
             // 
@@ -171,19 +191,22 @@ namespace BlackJack_0._2._1.Properties
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(1178, 744);
+            this.Controls.Add(this.button1);
             this.Controls.Add(this.multiplayerBtn);
             this.Controls.Add(this.exitButton);
             this.Controls.Add(this.buttonWhatNew);
             this.Controls.Add(this.buttonDifficulty);
             this.Controls.Add(this.fastGameButton);
             this.Controls.Add(this.label1);
-            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
             this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Name = "MenuForm";
             this.Text = "MenuForm";
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.MenuForm_FormClosed);
             this.ResumeLayout(false);
         }
+
+        private System.Windows.Forms.Button button1;
 
         private System.Windows.Forms.Button multiplayerBtn;
 

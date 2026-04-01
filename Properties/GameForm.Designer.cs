@@ -33,6 +33,7 @@ namespace BlackJack_0._2._1.Properties
         {
             this.label1 = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.AllInButton = new System.Windows.Forms.Button();
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.inputBet = new System.Windows.Forms.NumericUpDown();
@@ -74,6 +75,7 @@ namespace BlackJack_0._2._1.Properties
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.SystemColors.ControlDark;
+            this.panel1.Controls.Add(this.AllInButton);
             this.panel1.Controls.Add(this.label3);
             this.panel1.Controls.Add(this.label2);
             this.panel1.Controls.Add(this.inputBet);
@@ -85,13 +87,27 @@ namespace BlackJack_0._2._1.Properties
             this.panel1.Location = new System.Drawing.Point(0, 75);
             this.panel1.Margin = new System.Windows.Forms.Padding(3, 1, 3, 1);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(295, 669);
+            this.panel1.Size = new System.Drawing.Size(304, 669);
             this.panel1.TabIndex = 6;
+            // 
+            // AllInButton
+            // 
+            this.AllInButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(255)))));
+            this.AllInButton.FlatAppearance.BorderSize = 0;
+            this.AllInButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.AllInButton.Location = new System.Drawing.Point(9, 304);
+            this.AllInButton.Margin = new System.Windows.Forms.Padding(3, 5, 3, 5);
+            this.AllInButton.Name = "AllInButton";
+            this.AllInButton.Size = new System.Drawing.Size(143, 76);
+            this.AllInButton.TabIndex = 11;
+            this.AllInButton.Text = "ALL IN";
+            this.AllInButton.UseVisualStyleBackColor = false;
+            this.AllInButton.Click += new System.EventHandler(this.AllInButton_Click);
             // 
             // label3
             // 
             this.label3.Font = new System.Drawing.Font("Tahoma", 22F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.label3.Location = new System.Drawing.Point(9, 378);
+            this.label3.Location = new System.Drawing.Point(10, 385);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(283, 70);
             this.label3.TabIndex = 10;
@@ -113,10 +129,10 @@ namespace BlackJack_0._2._1.Properties
             this.inputBet.BackColor = System.Drawing.SystemColors.ControlDarkDark;
             this.inputBet.Font = new System.Drawing.Font("Microsoft Sans Serif", 36F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.inputBet.Increment = new decimal(new int[] { 25, 0, 0, 0 });
-            this.inputBet.Location = new System.Drawing.Point(8, 200);
+            this.inputBet.Location = new System.Drawing.Point(48, 200);
             this.inputBet.Maximum = new decimal(new int[] { 10000, 0, 0, 0 });
             this.inputBet.Name = "inputBet";
-            this.inputBet.Size = new System.Drawing.Size(284, 89);
+            this.inputBet.Size = new System.Drawing.Size(244, 89);
             this.inputBet.TabIndex = 8;
             // 
             // labelScore
@@ -124,7 +140,7 @@ namespace BlackJack_0._2._1.Properties
             this.labelScore.BackColor = System.Drawing.SystemColors.ControlDarkDark;
             this.labelScore.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.labelScore.Font = new System.Drawing.Font("Microsoft Sans Serif", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.labelScore.Location = new System.Drawing.Point(8, 450);
+            this.labelScore.Location = new System.Drawing.Point(9, 457);
             this.labelScore.Name = "labelScore";
             this.labelScore.Size = new System.Drawing.Size(283, 56);
             this.labelScore.TabIndex = 7;
@@ -133,10 +149,12 @@ namespace BlackJack_0._2._1.Properties
             // buttonApplyBet
             // 
             this.buttonApplyBet.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
-            this.buttonApplyBet.Location = new System.Drawing.Point(157, 297);
+            this.buttonApplyBet.FlatAppearance.BorderSize = 0;
+            this.buttonApplyBet.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.buttonApplyBet.Location = new System.Drawing.Point(158, 304);
             this.buttonApplyBet.Margin = new System.Windows.Forms.Padding(3, 5, 3, 5);
             this.buttonApplyBet.Name = "buttonApplyBet";
-            this.buttonApplyBet.Size = new System.Drawing.Size(135, 76);
+            this.buttonApplyBet.Size = new System.Drawing.Size(134, 76);
             this.buttonApplyBet.TabIndex = 4;
             this.buttonApplyBet.Text = "Принять";
             this.buttonApplyBet.UseVisualStyleBackColor = false;
@@ -145,12 +163,14 @@ namespace BlackJack_0._2._1.Properties
             // buttonClearBet
             // 
             this.buttonClearBet.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.buttonClearBet.Location = new System.Drawing.Point(8, 297);
+            this.buttonClearBet.FlatAppearance.BorderSize = 0;
+            this.buttonClearBet.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.buttonClearBet.Location = new System.Drawing.Point(8, 200);
             this.buttonClearBet.Margin = new System.Windows.Forms.Padding(3, 5, 3, 5);
             this.buttonClearBet.Name = "buttonClearBet";
-            this.buttonClearBet.Size = new System.Drawing.Size(132, 76);
+            this.buttonClearBet.Size = new System.Drawing.Size(34, 89);
             this.buttonClearBet.TabIndex = 3;
-            this.buttonClearBet.Text = "Отмена";
+            this.buttonClearBet.Text = "X";
             this.buttonClearBet.UseVisualStyleBackColor = false;
             this.buttonClearBet.Click += new System.EventHandler(this.buttonClearBet_Click);
             // 
@@ -345,6 +365,8 @@ namespace BlackJack_0._2._1.Properties
             ((System.ComponentModel.ISupportInitialize)(this.inputBet)).EndInit();
             this.ResumeLayout(false);
         }
+
+        private System.Windows.Forms.Button AllInButton;
 
         private System.Windows.Forms.Label label3;
 

@@ -11,6 +11,7 @@ namespace BlackJack_0._2._1.Properties
         public TexturePaks()
         {
             InitializeComponent();
+            this.Location = Data.windowPosition;   
             string dirPaks = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "CardTextures");
             String[] Paks = Directory.GetDirectories(dirPaks);
             Console.WriteLine("Paks found: " + Paks.Length);

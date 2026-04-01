@@ -9,6 +9,7 @@ namespace BlackJack_0._2._1.Images
         public FormChangeDiff()
         {
             InitializeComponent();
+            Data.windowPosition = this.Location;
         }
 
         private void exitButton_Click(object sender, EventArgs e)
